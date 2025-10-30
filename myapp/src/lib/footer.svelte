@@ -20,8 +20,7 @@
 <footer class="footer">
     <a href="contact">Contact</a>
     <div class=bottom>
-        <h1>Term of use</h1>
-        <a href="mailto:post@albertinespiseri.no">Email: post@albertinespiseri.no</a>
+        <h1>Terms of service</h1>
         <p>© 2025 Albertine Spiseri. All rights reserved.</p>
     </div>
 </footer>
