@@ -5,6 +5,7 @@
 	let { children } = $props();
 	// @ts-ignore
 	import Nav from '$lib/Nav.svelte';
+	import Footer from '$lib/footer.svelte';
 	//material ui
 	import '@material/web/button/filled-button.js';
 	import '@material/web/button/outlined-button.js';
@@ -21,3 +22,5 @@
 </svelte:head>
 
 {@render children?.()}
+
+<Footer />
