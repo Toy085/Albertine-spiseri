@@ -7,4 +7,5 @@
     let currency = "kr"
 </script>
 
+<h1>Your Items</h1>
 <MenuItemCart {price} {image} {ItemName} {ItemDes} {currency}/>

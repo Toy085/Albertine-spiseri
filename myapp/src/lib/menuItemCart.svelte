@@ -8,6 +8,7 @@
       border-radius: 5px;
       width: 500px;
       height: auto;
+      max-height: 20vh;
       display: grid;
       padding: 10px 5px;
       margin: 15px;
@@ -18,8 +19,10 @@
       height: auto;
       width: 100px;
       margin: auto;
+      margin-left: 5px;
       border-radius: 10px;
       grid-column-start: 1;
+      align-self: center;
    }
    .PRICE {
       text-align: left;
@@ -32,12 +35,9 @@
       grid-column-start: 2;
    }
    .ItemDes {
-      margin: 6px;
-      margin-bottom: 2px;
       font-family: 'Ubuntu', sans-serif, system-ui, Arial, 'Times New Roman', Times, serif;
-      max-height: 100px;
       height: auto;
-      overflow: hidden;
+      overflow: scroll;
       grid-column-start: 2;
    }
    .ItemRemoveButton {
@@ -46,13 +46,15 @@
       margin: 5px;
       text-align: center;
       grid-column-start: 3;
+      place-self: end;
+      
    }
 </style>
 
 <div>
     <img src={props.image} alt="Food" class="image">
     <h1 class="ItemName">{props.ItemName}</h1>
-    <h1 class="ItemDes">{props.ItemDes}<a href="/">read more.</a></h1>
+    <h1 class="ItemDes">{props.ItemDes}<a href="/" style="color: blue; text-decoration: underline;">read more.</a></h1>
     <h1 class="PRICE">{props.price} {props.currency}</h1>
     <md-filled-tonal-button class="ItemRemoveButton" on:click={addToCart}>Remove</md-filled-tonal-button>
 </div>

@@ -1,4 +1,5 @@
 <script lang="ts">
 
 </script>
-<p>Visit <a href="/order">order</a></p>
+
+<p>Welcome to Albertine!</p>
