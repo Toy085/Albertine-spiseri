@@ -1,6 +1,5 @@
 <script lang="ts">
 	import '../app.css';
-	import favicon from '$lib/assets/favicon.svg';
 	import faviconTest from '$lib/assets/albertine-logo-flower.png';
 	
 	let { children } = $props();
@@ -13,7 +12,10 @@
 	import '@material/web/checkbox/checkbox.js';
 	import '@material/web/button/filled-tonal-button.js'	
     import 'bootstrap/dist/css/bootstrap.min.css';
-    import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+    import { onMount } from 'svelte';
+	onMount(async () => {
+		await import('bootstrap/dist/js/bootstrap.bundle.min.js');
+	});
 </script>
 
 <Nav />

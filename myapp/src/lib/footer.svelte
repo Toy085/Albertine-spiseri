@@ -20,7 +20,7 @@
 <footer class="footer">
     <a href="contact">Contact</a>
     <div class=bottom>
-        <h1>Terms of service</h1>
+        <a href="terms"><h1>Terms of service</h1></a>
         <p>© 2025 Albertine Spiseri. All rights reserved.</p>
     </div>
 </footer>
