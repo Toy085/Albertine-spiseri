@@ -2,7 +2,7 @@
    let props = $props();
    //import image from '$lib/assets/2_18A_FL_FastFood_400x400.webp'
    function addToCart() {
-      alert("this function is not alvibelafdsasdfd")
+      alert("Sorry, can't add to cart")
    }
 </script>
 
@@ -40,7 +40,8 @@
       font-family: 'Ubuntu', sans-serif, system-ui, Arial, 'Times New Roman', Times, serif;
       max-height: 100px;
       height: auto;
-      overflow: hidden;
+      overflow: scroll;
+      font-size: small;
    }
    .ItemOrderButton {
       background-color: var(--secondary-color);
@@ -53,7 +54,7 @@
 <div>
     <img src={props.image} alt="Food" class="image">
     <h1 class="ItemName">{props.ItemName}</h1>
-    <h1 class="ItemDes">{props.ItemDes}<a href="/">read more.</a></h1>
-    <h1 class="PRICE">{props.price} {props.currency}</h1>
+    <h6 class="ItemDes">{props.ItemDes}<a href="/">read more.</a></h6>
+    <h5 class="PRICE">{props.price} {props.currency}</h5>
     <md-filled-tonal-button class="ItemOrderButton" on:click={addToCart}>Add to Cart</md-filled-tonal-button>
  </div>   

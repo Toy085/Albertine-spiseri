@@ -1,6 +1,19 @@
 <script lang="ts">
    let props = $props();
+
+   function removeFromCart(itemId: number) {
+      itemId = 0
+      alert("You can't remove this!")
+   }
 </script>
+
+<div>
+    <img src={props.image} alt="Food" class="image">
+    <h1 class="ItemName">{props.ItemName}</h1>
+    <h1 class="ItemDes">{props.ItemDes}<a href="/" style="color: blue; text-decoration: underline;">read more.</a></h1>
+    <h1 class="PRICE">{props.price} {props.currency}</h1>
+    <md-filled-tonal-button type="button" class="ItemRemoveButton" on:click={removeFromCart(0)}>Remove</md-filled-tonal-button>
+</div>
 
 <style>
     div {
@@ -39,6 +52,7 @@
       height: auto;
       overflow: scroll;
       grid-column-start: 2;
+      font-size: small;
    }
    .ItemRemoveButton {
       background-color: red;
@@ -50,11 +64,3 @@
       
    }
 </style>
-
-<div>
-    <img src={props.image} alt="Food" class="image">
-    <h1 class="ItemName">{props.ItemName}</h1>
-    <h1 class="ItemDes">{props.ItemDes}<a href="/" style="color: blue; text-decoration: underline;">read more.</a></h1>
-    <h1 class="PRICE">{props.price} {props.currency}</h1>
-    <md-filled-tonal-button class="ItemRemoveButton" on:click={addToCart}>Remove</md-filled-tonal-button>
-</div>
