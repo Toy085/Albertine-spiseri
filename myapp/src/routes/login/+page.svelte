@@ -1,21 +1,48 @@
-<script type="ts">
+<script lang="ts">
+	let email: string = "";
+	let password: string = "";
 
+	async function login(event: Event) {
+		event.preventDefault();
+		// Implement login logic here
+	}
+	async function signUp() {
+		// Implement sign-up logic here
+	}
 </script>
 
 <h1>Login/sign up</h1>
 
-<form>
-    <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-    </div>
-    
+<form class="loginForm" on:submit={login}>
+	<div class="mb-3 InputText">
+		<label for="exampleInputEmail1" class="form-label">Email address</label>
+		<input
+			type="email"
+			class="form-control"
+			id="exampleInputEmail1"
+			placeholder="john.smith@example.com"
+			bind:value={email}
+			required
+		/>
+		<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+	</div>
+	<div class="mb-3 InputText">
+		<label for="exampleInputPassword1" class="form-label">Password</label>
+		<input
+			type="password"
+			class="form-control"
+			id="exampleInputPassword1"
+			bind:value={password}
+			required
+		/>
+	</div>
 
-    <label for="inputPassword5" class="form-label">Password</label>
-    <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
-    <div id="passwordHelpBlock" class="form-text">
-    Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
-    </div>
+	<div class="form-check">
+  	<input class="form-check-input" type="checkbox" value="" id="checkDefault">
+  	<label class="form-check-label" for="checkDefault"> I agree to the Terms of Service. </label>
+	</div>
+	<button type="submit" class="btn btn-primary">Login</button>
+	<button type="button" class="btn btn-secondary" on:click={signUp}>Sign Up</button>
 </form>
 
 <style>
@@ -34,5 +61,9 @@
 	100% {
 		opacity: 1;
 	}
+}
+
+.loginForm {
+	padding-bottom: 50px;
 }
 </style>

@@ -22,3 +22,27 @@ Thumbs.db
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Firebase Configuration
+google-services.json
+GoogleService-Info.plist
+firebase_options.dart
+.env
+
+# Firebase CLI Generated
+.firebase/
+
+# Node.js Dependencies (if applicable)
+node_modules/
+
+# Build Output (adjust based on your project)
+dist/
+build/
+public/
+
+# Local Development & Editor Files
+.vscode/
+.idea/
+*.log
+*.tmp
+*.bak
