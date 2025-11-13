@@ -7,60 +7,35 @@
    }
 </script>
 
-<div>
-    <img src={props.image} alt="Food" class="image">
-    <h1 class="ItemName">{props.ItemName}</h1>
-    <h1 class="ItemDes">{props.ItemDes}<a href="/" style="color: blue; text-decoration: underline;">read more.</a></h1>
-    <h1 class="PRICE">{props.price} {props.currency}</h1>
-    <md-filled-tonal-button type="button" class="ItemRemoveButton" on:click={removeFromCart(0)}>Remove</md-filled-tonal-button>
+<div class="card">
+  <img class="card-img-top" alt={props.ItemName} src={props.image}>
+
+  <div class="card-body">
+    <h5 class="card-title">{props.ItemName} x {props.amount}</h5>
+    <p class="card-text">{props.ItemDes}</p>
+    <h6 class="card-subtitle mb-2">{props.price} kr</h6>
+    <a on:click={removeFromCart} type="button" class="btn btn-danger">Remove</a>
+  </div>
 </div>
 
 <style>
-    div {
-      background-color: var(--primary-color);
-      border-radius: 5px;
-      width: 500px;
-      height: auto;
-      max-height: 20vh;
-      display: grid;
-      padding: 10px 5px;
-      margin: 15px;
-      grid-template-columns: 100px auto auto;
-      justify-content: start;
-   }
-   .image {
-      height: auto;
-      width: 100px;
-      margin: auto;
-      margin-left: 5px;
-      border-radius: 10px;
-      grid-column-start: 1;
-      align-self: center;
-   }
-   .PRICE {
-      text-align: left;
-      font-size: 15px;
-   }
-   .ItemName {
-      text-align: center;
-      font-size: 20px;
-      font-weight: bold;
-      grid-column-start: 2;
-   }
-   .ItemDes {
-      font-family: 'Ubuntu', sans-serif, system-ui, Arial, 'Times New Roman', Times, serif;
-      height: auto;
-      overflow: scroll;
-      grid-column-start: 2;
-      font-size: small;
-   }
-   .ItemRemoveButton {
-      background-color: red;
-      width: 100px;
-      margin: 5px;
-      text-align: center;
-      grid-column-start: 3;
-      place-self: end;
-      
+   .card {
+  display: flex;           /* makes children lay out in a row */
+  flex-direction: row;     /* horizontal layout */
+  align-items: center;     /* vertically center items */
+  width: auto;
+  max-width: 75%;
+  background-color: var(--primary-color);
+  border-radius: 5px;
+  margin: 15px;
+  padding: 10px;
+  gap: 15px;               /* space between image and text */
+}
+   .card-img-top {
+      border-radius: 12px;
+      height: 5rem;
+      width: auto;
+      object-fit: cover;
+      flex-shrink: 0;
    }
 </style>

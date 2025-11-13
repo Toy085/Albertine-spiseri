@@ -1,10 +1,17 @@
 <script lang="ts">
+   import { cart } from '$lib/stores/cart';
    import image from './assets/white.jpg';
    let props = $props();
    let loading = props.loading || false;
    //import image from '$lib/assets/2_18A_FL_FastFood_400x400.webp'
    function addToCart() {
-      alert("Sorry, can't add to cart")
+      cart.addItem({
+            name: props.ItemName,
+            description: props.ItemDes,
+            price: props.price,
+            image: props.image
+        }, 1);
+        alert(`${props.ItemName} added to cart!`);
    }
 </script>
 
@@ -32,6 +39,7 @@
   <div class="card-body">
     <h5 class="card-title">{props.ItemName}</h5>
     <p class="card-text">{props.ItemDes}</p>
+    <h6 class="card-subtitle mb-2">{props.price} kr</h6>
     <a on:click={addToCart} class="btn btn-primary">Order</a>
   </div>
 </div>
@@ -39,14 +47,15 @@
 
 <style>
    .card {
-      width: 18rem;
+      width: 16rem;
+      height: auto;
       background-color: var(--primary-color);
       border-radius: 5px;
       margin: 15px;
       padding: 10px;
    }
    .card-img-top {
-      border-radius: 10px;
+      border-radius: 12px;
    }
 </style>
 
