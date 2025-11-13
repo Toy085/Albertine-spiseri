@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import faviconTest from '$lib/assets/albertine-logo-flower.png';
+	import { onMount } from 'svelte';
 	
 	let { children } = $props();
 	// @ts-ignore
@@ -12,7 +13,7 @@
 	import '@material/web/checkbox/checkbox.js';
 	import '@material/web/button/filled-tonal-button.js'	
     import 'bootstrap/dist/css/bootstrap.min.css';
-    import { onMount } from 'svelte';
+    
 	onMount(async () => {
 		await import('bootstrap/dist/js/bootstrap.bundle.min.js');
 	});
