@@ -29,7 +29,7 @@
       <span class="placeholder col-6"></span>
       <span class="placeholder col-8"></span>
     </p>
-    <a class="btn btn-primary disabled placeholder col-6" aria-disabled="true">Order</a>
+    <a class="btn btn-primary disabled placeholder col-6" aria-disabled="true">Add to cart</a>
   </div>
 </div>
 {:else}
@@ -40,7 +40,7 @@
     <h5 class="card-title">{props.ItemName}</h5>
     <p class="card-text">{props.ItemDes}</p>
     <h6 class="card-subtitle mb-2">{props.price} kr</h6>
-    <a on:click={addToCart} class="btn btn-primary">Order</a>
+    <a on:click={addToCart} class="btn btn-primary">Add to cart</a>
   </div>
 </div>
 {/if}

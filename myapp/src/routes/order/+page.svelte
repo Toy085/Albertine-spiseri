@@ -1,6 +1,14 @@
 <script lang="ts">
     import MenuItem from '$lib/menuItem.svelte';
     import image from '$lib/assets/2_18A_FL_FastFood_400x400.webp';
+
+    import db from '$lib/db';
+
+    export function load() {
+        const dishes = db.prepare('SELECT * FROM dishes').all();
+        return { dishes };
+}
+
     let price = 2;
     let ItemName = "ItemName";
     let ItemDes = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec nisl consequat risus aliquet efficitur. Sed cursus metus non neque congue, ut fermentum leo imperdiet";
