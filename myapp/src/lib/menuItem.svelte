@@ -6,12 +6,13 @@
    //import image from '$lib/assets/2_18A_FL_FastFood_400x400.webp'
    function addToCart() {
       cart.addItem({
-            name: props.ItemName,
-            description: props.ItemDes,
+            id: props.id,
+            name: props.name,
+            description: props.description,
             price: props.price,
             image: props.image
         }, 1);
-        alert(`${props.ItemName} added to cart!`);
+        alert(`${props.name} added to cart!`);
    }
 </script>
 
@@ -34,11 +35,11 @@
 </div>
 {:else}
    <div class="card">
-  <img class="card-img-top" alt={props.ItemName} src={props.image}>
+  <img class="card-img-top" alt={props.name} src={props.image}>
 
   <div class="card-body">
-    <h5 class="card-title">{props.ItemName}</h5>
-    <p class="card-text">{props.ItemDes}</p>
+    <h5 class="card-title">{props.name}</h5>
+    <p class="card-text">{props.description}</p>
     <h6 class="card-subtitle mb-2">{props.price} kr</h6>
     <a on:click={addToCart} class="btn btn-primary">Add to cart</a>
   </div>

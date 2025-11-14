@@ -8,19 +8,15 @@ export async function getDB() {
     if (db) return db;
 
     const SQL = await initSqlJs();
-
     const dbPath = path.join(process.cwd(), 'src/lib/db/database.db');
 
-    // Load existing DB or create new
-    let filebuffer;
     try {
-        filebuffer = fs.readFileSync(dbPath);
+        const filebuffer = fs.readFileSync(dbPath);
         db = new SQL.Database(filebuffer);
     } catch {
-        db = new SQL.Database();
+        db = new SQL.Database(); // create new if missing
     }
 
-    // Create table
     db.run(`
         CREATE TABLE IF NOT EXISTS dishes (
             id INTEGER PRIMARY KEY AUTOINCREMENT,

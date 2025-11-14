@@ -1,13 +1,8 @@
 <script lang="ts">
     import MenuItem from '$lib/menuItem.svelte';
     import image from '$lib/assets/2_18A_FL_FastFood_400x400.webp';
-
-    import db from '$lib/db';
-
-    export function load() {
-        const dishes = db.prepare('SELECT * FROM dishes').all();
-        return { dishes };
-}
+    export let data;
+    const dishes = data.dishes;
 
     let price = 2;
     let ItemName = "ItemName";
@@ -16,4 +11,18 @@
 </script>
 <h1>Order smt!</h1>
 
-<MenuItem {price} {image} {ItemName} {ItemDes} {loading}/>
+{#each dishes as dish}
+    <div class="row align-items-start">
+        <div class="col">
+    <MenuItem 
+    id={dish.id}
+    price={dish.price}
+    image={dish.image}
+    name={dish.name}
+    description={dish.description}
+    {loading}
+    />
+        </div>
+    </div>
+{/each}
+

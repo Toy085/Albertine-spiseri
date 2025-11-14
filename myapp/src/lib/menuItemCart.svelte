@@ -1,20 +1,22 @@
 <script lang="ts">
+   import { cart } from '$lib/stores/cart';
    let props = $props();
+   
+   let id = props.id
+   function handleRemove() {
+      cart.removeItem(id); // remove by id
+}
 
-   function removeFromCart(itemId: number) {
-      itemId = 0
-      alert("You can't remove this!")
-   }
 </script>
 
 <div class="card">
-  <img class="card-img-top" alt={props.ItemName} src={props.image}>
+  <img class="card-img-top" alt={props.name} src={props.image}>
 
   <div class="card-body">
-    <h5 class="card-title">{props.ItemName} x {props.amount}</h5>
-    <p class="card-text">{props.ItemDes}</p>
+    <h5 class="card-title">{props.name} x {props.amount}</h5>
+    <p class="card-text">{props.description}</p>
     <h6 class="card-subtitle mb-2">{props.price} kr</h6>
-    <a on:click={removeFromCart} type="button" class="btn btn-danger">Remove</a>
+    <a on:click={handleRemove} type="button" class="btn btn-danger">Remove</a>
   </div>
 </div>
 
