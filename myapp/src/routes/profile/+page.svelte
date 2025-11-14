@@ -3,6 +3,8 @@
     let description = '';
     let image = '';
     let price: number;
+    let admin: boolean;
+    admin = true;
 
     async function addDish() {
         const res = await fetch('/dishes', {
@@ -22,7 +24,7 @@
 </script>
 <h1>Profile Page</h1>
 
-
+{#if admin}
 <form on:submit|preventDefault={addDish}>
     <input placeholder="Name" bind:value={name} required />
     <input placeholder="Description" bind:value={description} required />
@@ -31,6 +33,7 @@
 
     <button type="submit">Add Dish</button>
 </form>
+{/if}
 
 <style>
 

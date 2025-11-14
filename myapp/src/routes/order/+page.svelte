@@ -7,13 +7,12 @@
     let price = 2;
     let ItemName = "ItemName";
     let ItemDes = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec nisl consequat risus aliquet efficitur. Sed cursus metus non neque congue, ut fermentum leo imperdiet";
-    let loading = false;
+    let loading = dishes.length === 0;
 </script>
 <h1>Order smt!</h1>
 
+<div class="menu-container">
 {#each dishes as dish}
-    <div class="row align-items-start">
-        <div class="col">
     <MenuItem 
     id={dish.id}
     price={dish.price}
@@ -22,7 +21,13 @@
     description={dish.description}
     {loading}
     />
-        </div>
-    </div>
 {/each}
+</div>
 
+<style>
+    .menu-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; 
+    }
+</style>
