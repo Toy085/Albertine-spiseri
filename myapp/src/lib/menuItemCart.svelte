@@ -21,6 +21,9 @@
 </div>
 
 <style>
+   * {
+      color: var(--bs-light-text-emphasis);
+   }
    .card {
   display: flex;           /* makes children lay out in a row */
   flex-direction: row;     /* horizontal layout */

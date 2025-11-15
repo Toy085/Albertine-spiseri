@@ -26,5 +26,6 @@
   form {
     max-width: 600px;
     margin: auto;
+    margin-bottom: 10px;
   }
 </style>

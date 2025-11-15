@@ -47,6 +47,9 @@
 {/if}
 
 <style>
+   * {
+      color: var(--bs-light-text-emphasis);
+   }
    .card {
       width: 16rem;
       height: auto;
