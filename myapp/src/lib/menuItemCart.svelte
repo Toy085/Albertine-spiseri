@@ -16,7 +16,7 @@
     <h5 class="card-title">{props.name} x {props.amount}</h5>
     <p class="card-text">{props.description}</p>
     <h6 class="card-subtitle mb-2">{props.price} kr</h6>
-    <a on:click={handleRemove} type="button" class="btn btn-danger">Remove</a>
+    <a onclick={handleRemove} type="button" class="btn btn-danger">Remove</a>
   </div>
 </div>
 

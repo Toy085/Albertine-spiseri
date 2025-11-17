@@ -44,7 +44,7 @@
     <h5 class="card-title">{props.name}</h5>
     <p class="card-text">{props.description}</p>
     <h6 class="card-subtitle mb-2">{props.price} kr</h6>
-    <a on:click={addToCart} class="btn btn-primary">Add to cart</a>
+    <a onclick={addToCart} class="btn btn-primary">Add to cart</a>
   </div>
 </div>
 {/if}
