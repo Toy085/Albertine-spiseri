@@ -1,9 +1,10 @@
 <script lang="ts">
+   import { onMount } from 'svelte';
    import { cart } from '$lib/stores/cart';
    import image from './assets/white.jpg';
+   import { toast } from '@zerodevx/svelte-toast';
    let props = $props();
-   let loading = props.loading || false;
-   //import image from '$lib/assets/2_18A_FL_FastFood_400x400.webp'
+
    function addToCart() {
       cart.addItem({
             id: props.id,
@@ -12,11 +13,14 @@
             price: props.price,
             image: props.image
         }, 1);
-        alert(`${props.name} added to cart!`);
+        toast.push({
+         msg: `${props.name} added to cart!`, 
+         duration: 2500
+      });
    }
 </script>
 
-{#if loading}
+{#if props.loading}
    <div class="card" aria-hidden="true">
   <img src={image} class="card-img-top" alt="loading...">
   <div class="card-body">

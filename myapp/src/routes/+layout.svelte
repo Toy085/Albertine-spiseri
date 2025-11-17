@@ -2,6 +2,7 @@
 	import '../app.css';
 	import faviconTest from '$lib/assets/albertine-logo-flower.png';
 	import { onMount } from 'svelte';
+	import { SvelteToast } from '@zerodevx/svelte-toast'
 	
 	let { children } = $props();
 	// @ts-ignore
@@ -30,3 +31,4 @@
 {@render children?.()}
 
 <Footer />
+<SvelteToast />
