@@ -16,6 +16,7 @@
     import 'bootstrap/dist/css/bootstrap.min.css';
     
 	onMount(async () => {
+		// @ts-ignore
 		await import('bootstrap/dist/js/bootstrap.bundle.min.js');
 	});
 </script>
