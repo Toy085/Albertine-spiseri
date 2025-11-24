@@ -5,6 +5,7 @@
     const dishes = data.dishes;
 
     import image from '$lib/assets/2_18A_FL_FastFood_400x400.webp';
+	import { goto } from '$app/navigation';
     let price = 2;
     let ItemName = "ItemName";
     let ItemDes = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec nisl consequat risus aliquet efficitur. Sed cursus metus non neque congue, ut fermentum leo imperdiet";
@@ -32,5 +33,5 @@
 
     <p><strong>Total: {total} kr</strong></p>
     <button class="btn btn-danger" on:click={() => cart.clear()}>Clear Cart</button>
-    <button class="btn btn-primary" on:click={() => alert(`Total price: ${total} kr`)}>Checkout</button>
+    <button class="btn btn-primary" on:click={() => goto("/checkout")}>Checkout</button>
 {/if}
