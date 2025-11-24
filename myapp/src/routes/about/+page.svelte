@@ -26,6 +26,7 @@
         background-color: var(--bs-primary-bg-subtle);
         border-radius: var(--bs-border-radius-lg);
         padding: 10px 8px;
+        margin-bottom: 15px;
     }
 
     iframe {
