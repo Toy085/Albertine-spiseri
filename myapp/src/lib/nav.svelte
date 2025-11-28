@@ -51,7 +51,7 @@
 </style>
 
 <nav>
-  <img src={logo} class="logo" alt="Albertine spiseri">
+  <a href="/"><img src={logo} class="logo" alt="Albertine spiseri"></a>
   <a href="/" class="navButtons">Home</a>
   <a href="/order" class="navButtons">Order</a>
   <a href="/contact" class="navButtons">Contact</a>

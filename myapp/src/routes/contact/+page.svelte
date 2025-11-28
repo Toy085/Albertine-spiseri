@@ -3,6 +3,8 @@
 </script>
 <h1>Contact</h1>
 
+<p>Contact us via the form below.</p>
+
 <form>
 <div class="form-floating mb-3">
   <input class="form-control" id="name" name="name" type="text" placeholder="Default input" aria-label="default input example" required>
@@ -15,7 +17,7 @@
 </div>
 
   <div class="form-floating mb-3">
-  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" required></textarea>
   <label for="floatingTextarea2">Comments</label>
 </div>
 
