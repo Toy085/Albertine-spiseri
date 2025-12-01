@@ -59,5 +59,6 @@
         max-width: 600px;
         margin-top: 20px;
         margin: 0 auto;
+        margin-bottom: 5px;
     }
 </style>

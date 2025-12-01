@@ -33,6 +33,14 @@
   </div>
 </div>
 
+<div class="OpeningHoursBox">
+  <p>Opening hours</p>
+  <h3>Monday-Friday: 14:00-23:00</h3>
+  <h3>Staturday: 13:00-23:00</h3>
+  <h3>Sunday: Closed</h3>
+  <h3>The kicthen is closed 21:00</h3>
+</div>
+
 <style>
   .bentoBox {
     border-radius: var(--bs-border-radius-xl);
@@ -79,5 +87,29 @@
   }
   .bentoAboutButton {
     margin: 5px;
+  }
+
+  .OpeningHoursBox {
+    background-color: aquamarine;
+    width: 250px;
+    height: auto;
+    margin: 0 auto;
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: var(--bs-border-radius-xl);
+    text-align: center;
+    transition: background-color 1s ease;
+    transition: width 0.7s ease;
+  }
+  .OpeningHoursBox:hover {
+    background-color: aqua;
+    width: 275px;
+  }
+  .OpeningHoursBox h3 {
+    font-size: medium;
+  }
+  .OpeningHoursBox p {
+    font-size: large;
+    font-weight: bold;
   }
 </style>
