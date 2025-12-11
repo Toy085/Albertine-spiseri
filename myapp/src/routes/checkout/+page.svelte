@@ -12,7 +12,9 @@
         address: '',
         city: '',
         zipCode: '',
-        cardNumber: ''
+        cardNumber: '',
+        CVC: 0,
+        date: ''
     };
 
     $: total = $cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -21,6 +23,21 @@
         alert('Order placed successfully!');
         goto('/');
     }
+
+    const today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth() + 1; // January is 0!
+    const yyyy = today.getFullYear();
+
+    if (dd < 10) {
+        dd = '0' + dd;
+    }
+    if (mm < 10) {
+        mm = '0' + mm;
+    }
+
+    // This variable is reactive and used directly in the HTML template
+    const todayFormatted = `${yyyy}-${mm}-${dd}`;
 </script>
 
 <div class="checkout-container">
@@ -47,7 +64,10 @@
             <input type="text" placeholder="Last Name" bind:value={formData.lastName} required />
 
             <h2>Payment Information</h2>
-            <input type="text" placeholder="Card Number" bind:value={formData.cardNumber} required />
+            <input type="text" placeholder="Card Number" aria-label="Disabled" bind:value={formData.cardNumber} disabled />
+            <input type="text" placeholder="CVV/CVC" aria-label="Disabled" bind:value={formData.CVC} disabled />
+            <input type="month" id="myDateInput" placeholder="Card Expiry Date" aria-label="Disabled" min={todayFormatted} bind:value={formData.date} disabled />
+
 
             <button type="submit">Complete Purchase</button>
             <button type="submit" class="vippsButton" on:click={() => alert('Vipps not available')}>VIPPS</button>
