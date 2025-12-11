@@ -68,7 +68,6 @@
             <input type="text" placeholder="CVV/CVC" aria-label="Disabled" bind:value={formData.CVC} disabled />
             <input type="month" id="myDateInput" placeholder="Card Expiry Date" aria-label="Disabled" min={todayFormatted} bind:value={formData.date} disabled />
 
-
             <button type="submit">Complete Purchase</button>
             <button type="submit" class="vippsButton" on:click={() => alert('Vipps not available')}>VIPPS</button>
         </form>
