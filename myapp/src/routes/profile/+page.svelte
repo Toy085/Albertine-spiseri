@@ -3,7 +3,8 @@
     let description = '';
     let image = '';
     let price: number;
-    let userType = 'admin'; // This would typically come from user session data
+    let userType = 'admin'; 
+    let activeTab = 'info';
 
     async function addDish() {
         const res = await fetch('/dishes', {
@@ -24,6 +25,16 @@
     userType = 'admin'; // Change this value to 'admin', 'customer', 'restaurant', or '' to test different views
 </script>
 <h1>Profile Page</h1>
+
+<div class="form-floating mb-3" style="max-width: 300px; margin: 0 auto;">
+    <select id="userType" class="form-select" bind:value={userType}>
+        <option value="">Select user type</option>
+        <option value="admin">Admin</option>
+        <option value="customer">Customer</option>
+        <option value="restaurant">Restaurant</option>
+    </select>
+    <label for="userType">User Type</label>
+</div>
 
 {#if userType === 'admin'}
 <form on:submit|preventDefault={addDish} class="dishAddForm">
@@ -47,7 +58,17 @@
     <button class="btn btn-primary" type="submit">Add Dish</button>
 </form>
 {:else if userType === 'customer'}
-    <p>Customer profile page will come soon, under work</p>
+<ul class="nav nav-tabs customer-profile-tabs">
+  <li class="nav-item">
+    <a class="nav-link" href="#">Info</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Receipts</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Settings</a>
+  </li>
+</ul>
 {:else if userType === 'restaurant'}
     <p>Will come soon, under work</p>
 {:else}
@@ -60,5 +81,11 @@
         margin-top: 20px;
         margin: 0 auto;
         margin-bottom: 5px;
+    }
+    .customer-profile-tabs {
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: var(--bs-primary-bg-subtle);
+        border-radius: var(--bs-border-radius-lg);
     }
 </style>
