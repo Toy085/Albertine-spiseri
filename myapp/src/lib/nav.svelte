@@ -35,11 +35,6 @@
     background-color: #ddd;
     color: black;
   }
-
-  /*nav a.active {
-    background-color: #04AA6D;
-    color: white;
-  }*/
   .profileIcon {
     aspect-ratio: 1 / 1;
     border-radius: 100%;
@@ -47,11 +42,11 @@
   }
  
   .nav-icon {
-    width: 50px;       /* pick your desired size */
+    width: 50px;
     height: 50px;
-    object-fit: cover;  /* maintain aspect ratio, crop if needed */
+    object-fit: cover; 
     float: right;
-    margin-left: 10px;  /* spacing between icons */
+    margin-left: 10px;
   }
 </style>
 
