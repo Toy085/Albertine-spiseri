@@ -6,7 +6,7 @@
 	
 	let { children } = $props();
 	// @ts-ignore
-	import Nav from '$lib/Nav.svelte';
+	import Nav from '$lib/nav.svelte';
 	import Footer from '$lib/footer.svelte';
 	//material ui
 	import '@material/web/button/filled-button.js';
