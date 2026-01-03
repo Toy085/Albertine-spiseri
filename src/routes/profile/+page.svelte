@@ -115,8 +115,19 @@
     }
     .customer-profile-tabs {
         max-width: 600px;
-        margin: 20px auto;
+        margin: 20px auto 0px;
         background-color: var(--bs-primary-bg-subtle);
         border-radius: var(--bs-border-radius-lg);
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-color: black;
+    }
+
+    .tab-content-container {
+      max-width: 600px;
+      margin: 0 auto 20px;
+      background-color: var(--bs-primary-bg-subtle);
+      border-bottom-left-radius: var(--bs-border-radius-lg);
+      border-bottom-right-radius: var(--bs-border-radius-lg);
     }
 </style>
