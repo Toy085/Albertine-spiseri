@@ -1,40 +1,36 @@
-import initSqlJs from 'sql.js';
-import fs from 'fs';
+import Database from 'better-sqlite3';
 import path from 'path';
+import fs from 'fs';
 
 let db;
 
-export async function getDB() {
+export function getDB() {
     if (db) return db;
 
-    // IMPORTANT: This specific line tells Vercel's bundler 
-    // to include this file in the 'NFT' trace.
-    const wasmPath = path.join(process.cwd(), 'src/lib/db/sql-wasm.wasm');
-    
-    // We 'dummy read' the directory or file to ensure the bundler includes it
-    if (!fs.existsSync(wasmPath)) {
-        throw new Error(`WASM file not found at ${wasmPath}`);
+    // Define the path to your database file
+    // In SvelteKit/Vercel, we target the root-level src folder
+    const dbPath = path.resolve(process.cwd(), 'src/lib/db/database.db');
+
+    // Ensure the directory exists (useful for local dev)
+    const dbDir = path.dirname(dbPath);
+    if (!fs.existsSync(dbDir)) {
+        fs.mkdirSync(dbDir, { recursive: true });
     }
-
-    const SQL = await initSqlJs({
-        // We pass the absolute path string directly
-        locateFile: () => wasmPath
-    });
-
-    const dbPath = path.join(process.cwd(), 'src/lib/db/database.db');
 
     try {
-        if (fs.existsSync(dbPath)) {
-            const filebuffer = fs.readFileSync(dbPath);
-            db = new SQL.Database(filebuffer);
-        } else {
-            db = new SQL.Database();
-        }
+        // This opens the file directly. No WASM needed!
+        db = new Database(dbPath, { verbose: console.log });
+        
+        // Optimize for performance
+        db.pragma('journal_mode = WAL');
     } catch (err) {
-        db = new SQL.Database(); 
+        console.error("Failed to connect to SQLite:", err);
+        // Fallback to in-memory if file fails
+        db = new Database(':memory:');
     }
 
-    db.run(`
+    // Initialize the table
+    db.exec(`
         CREATE TABLE IF NOT EXISTS dishes (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT NOT NULL,

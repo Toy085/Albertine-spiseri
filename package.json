@@ -37,6 +37,7 @@
 	},
 	"dependencies": {
 		"@material/web": "^2.4.0",
+		"better-sqlite3": "^12.5.0",
 		"bootstrap": "^5.3.8",
 		"drizzle-orm": "^0.44.6",
 		"firebase": "^12.6.0",
