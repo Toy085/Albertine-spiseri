@@ -7,29 +7,28 @@ let db;
 export async function getDB() {
     if (db) return db;
 
-    // 1. Configure the WASM locator
-    const SQL = await initSqlJs({
-        locateFile: file => {
-            // This points the library to look for the .wasm file 
-            // in the same directory as this script.
-            return path.join(process.cwd(), 'node_modules/sql.js/dist/', file);
-        }
-    });
+    // Vercel-specific path resolution
+    const wasmPath = path.resolve(process.cwd(), 'src/lib/db/sql-wasm.wasm');
+    const dbPath = path.resolve(process.cwd(), 'src/lib/db/database.db');
 
-    const dbPath = path.join(process.cwd(), 'src/lib/db/database.db');
+    const SQL = await initSqlJs({
+        locateFile: () => wasmPath
+    });
 
     try {
         if (fs.existsSync(dbPath)) {
             const filebuffer = fs.readFileSync(dbPath);
             db = new SQL.Database(filebuffer);
         } else {
+            console.log("Database file not found, creating new in-memory instance.");
             db = new SQL.Database();
         }
     } catch (err) {
-        console.error("Database initialization failed:", err);
+        console.error("Failed to load DB file:", err);
         db = new SQL.Database(); 
     }
 
+    // Initialize table
     db.run(`
         CREATE TABLE IF NOT EXISTS dishes (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
