@@ -20,3 +20,7 @@ To create a production version of your app:
 ```sh
 npm run build
 ```
+
+Image:
+
+<img width="829" height="396" alt="image" src="https://github.com/user-attachments/assets/686b4252-aecd-4940-988c-009a80599ba5" />
